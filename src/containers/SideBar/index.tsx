@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from '../../components/Search';
 import '../../styles/SideBar.scss';
+import Temperature from '../../components/Temperature';
 
 const SideBar: React.FC = () => {
   return (
@@ -9,7 +10,11 @@ const SideBar: React.FC = () => {
         <Search />
       </div>
       <div className="sidebar__inner-component">
-        {/* Content for the second inner component */}
+        <Temperature
+          temperature={2}
+          humidity={2}
+          windSpeed={2}
+         />
       </div>
       <div className="sidebar__inner-component">
         {/* Content for the third inner component */}
