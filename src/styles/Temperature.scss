@@ -1,0 +1,13 @@
+.temperature {
+  &__item {
+    margin-bottom: 10px;
+  }
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__value {
+    margin-left: 5px;
+  }
+}
