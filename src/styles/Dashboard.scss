@@ -9,12 +9,27 @@
   }
 
   &__inner-container--first {
+    border-radius: 25px;
+    border-color: white;
+    border: solid 0.1px;
+    border-bottom: 0;
+    border-top: 0;
     width: 30%;
-    background-color: #f1f1f1; /* Just for demonstration */
   }
 
   &__inner-container--second {
     width: 70%;
-    background-color: #eaeaea; /* Just for demonstration */
+  }
+}
+
+.wallpaper {
+  background-size: cover;
+  
+  &__cloudly {
+    background: url('../assets/cloud.jpg') no-repeat center center fixed;
+  }
+
+  &__sunny {
+    background: url('../assets/sunny.jpg') no-repeat center center fixed;
   }
 }
