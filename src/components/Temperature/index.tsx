@@ -25,5 +25,5 @@ const Temperature: React.FC<TemperatureProps> = ({ temperature, humidity, windSp
     </div>
   );
 };
-
+ 
 export default Temperature;
