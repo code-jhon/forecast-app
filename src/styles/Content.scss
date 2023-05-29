@@ -1,0 +1,9 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__inner-component {
+    margin: 10px 0;
+  }
+}
