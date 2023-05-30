@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom';
 import ErrorPage from "./error-page";
 import Dashboard from './containers/Dashboard/index.tsx';
+
+import { WeatherProvider } from './services/Context/WeatherContext.tsx';
 import './index.css'
 
 const router = createBrowserRouter([
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <WeatherProvider>
+      <RouterProvider router={router} />
+    </WeatherProvider>
   </React.StrictMode>,
 )
