@@ -73,3 +73,7 @@ export interface WeatherHookResult {
 export interface WeatherProviderInterface {
   children: any;
 }
+
+export interface OtherInfoProps {
+  probability: number;
+}
