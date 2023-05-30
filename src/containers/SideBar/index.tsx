@@ -7,9 +7,10 @@ import { WeatherContext } from '../../services/Context/WeatherContext';
 
 import '../../styles/SideBar.scss';
 import OtherInfo from '../../components/OtherInfo';
+import AverageHumidity from '../../components/AverageHumidity';
 
 const SideBar: React.FC = () => {
-  const { weatherData } = useContext(WeatherContext);
+  const { weatherData, forecastData } = useContext(WeatherContext);
   return (
     <div className="sidebar">
       <div className="sidebar__inner-component">
@@ -24,6 +25,9 @@ const SideBar: React.FC = () => {
       </div>
       <div className="sidebar__inner-component">
         <OtherInfo probability={20} />
+      </div>
+      <div className="sidebar__inner-component">
+        <AverageHumidity data={forecastData}/>
       </div>
       <div className="sidebar__inner-component">
         {/* Content for the third inner component */}
