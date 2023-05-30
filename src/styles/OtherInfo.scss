@@ -1,0 +1,21 @@
+.other-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  &__value {
+    color: #333;
+    font-size: 12px;
+  }
+
+  &__details {
+    display: flex;
+    font-size: 9px;
+    flex-direction: column;
+  }
+}
