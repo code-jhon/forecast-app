@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Search from '../../components/Search';
 import '../../styles/SideBar.scss';
 import Temperature from '../../components/Temperature';
+import { WeatherContext } from '../../services/Context/WeatherContext';
 
 const SideBar: React.FC = () => {
+  const { weatherData } = useContext(WeatherContext);
   return (
     <div className="sidebar">
       <div className="sidebar__inner-component">
