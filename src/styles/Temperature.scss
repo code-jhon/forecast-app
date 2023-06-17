@@ -1,13 +1,32 @@
 .temperature {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 159px;
+  max-width: 269px;
+
   &__item {
     margin-bottom: 10px;
-  }
-
-  &__label {
-    font-weight: bold;
+    width: 50%;
+    height: 50%;
   }
 
   &__value {
     margin-left: 5px;
+
+    &--current,
+    &--uv {
+      font-size: 68px;
+    }
+
+    &--humidity {
+      font-size: 33px;
+    }
+
+    &--wind {
+      position: relative;
+      font-size: 15px;
+      top: 19px;
+    }
   }
 }
