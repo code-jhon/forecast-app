@@ -5,35 +5,43 @@ import Temperature from '../../components/Temperature';
 
 import { WeatherContext } from '../../services/Context/WeatherContext';
 
-import '../../styles/SideBar.scss';
 import OtherInfo from '../../components/OtherInfo';
 import AverageHumidity from '../../components/AverageHumidity';
 
+import '../../styles/SideBar.scss';
+
 const SideBar: React.FC = () => {
-  const { weatherData, forecastData } = useContext(WeatherContext);
-  return (
+  const { data } = useContext<any>(WeatherContext);
+
+  const content = data && !data.loading ? (
     <div className="sidebar">
       <div className="sidebar__inner-component">
         <Search />
       </div>
       <div className="sidebar__inner-component">
         <Temperature
-          temperature={2}
-          humidity={2}
-          windSpeed={2}
+          temperature={data.weatherData?.current.temp_c}
+          humidity={data.weatherData?.current.humidity}
+          windSpeed={data.weatherData?.current.wind_kph}
+          windDirection={data.weatherData?.current.wind_dir}
+          uv={data.weatherData?.current.uv}
         />
       </div>
       <div className="sidebar__inner-component">
-        <OtherInfo probability={20} />
+        {/* <OtherInfo probability={20} /> */}
       </div>
       <div className="sidebar__inner-component">
-        <AverageHumidity data={forecastData}/>
+        {/* <AverageHumidity data={data}/> */}
       </div>
       <div className="sidebar__inner-component">
         {/* Content for the third inner component */}
       </div>
     </div>
+  ) : (
+    <>loading</>
   );
+
+  return content;
 };
 
 export default SideBar;
