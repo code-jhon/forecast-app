@@ -13,13 +13,16 @@ const api: AxiosInstance = axios.create({
 
 export const getWeatherData = async (location: string): Promise<WeatherData | ErrorResponse> => {
   try {
-    const response: AxiosResponse<WeatherData> = await api.get('/current.json', {
+    const response: AxiosResponse<WeatherData> = await api.get('/forecast.json', {
       params: {
         q: location,
+        days: 1,
+        aqi: "yes",
+        alerts: "yes"
       },
     });
     return response.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error retrieving weather data:', error);
     throw error;
   }

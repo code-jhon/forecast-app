@@ -71,6 +71,7 @@ export interface WeatherHookResult {
 }
 
 export interface WeatherProviderInterface {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children: any;
 }
 
@@ -169,5 +170,10 @@ export interface WeatherForeCastResponse {
 }
 
 export interface AverageHumidityProps {
-  data: WeatherForeCastResponse;
+  data: WeatherHookResult;
+}
+
+export interface WeatherGlobalStates {
+  data: WeatherHookResult;
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
 }

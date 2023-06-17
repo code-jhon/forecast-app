@@ -1,23 +1,15 @@
-import React, { createContext, useState } from 'react';
-import { WeatherData, WeatherProviderInterface, WeatherForeCastResponse } from '../../utils/interfaces';
-import { mockedData, mockedForecastData } from './mockedData';
-
-interface WeatherGlobalStates {
-  weatherData: WeatherData;
-  forecastData: WeatherForeCastResponse;
-}
-
-const initialWeatherContextData: WeatherData = mockedData;
-const initialForecastData: WeatherForeCastResponse = mockedForecastData;
+import React, { useState, createContext } from 'react';
+import { WeatherHookResult, WeatherProviderInterface, WeatherGlobalStates } from '../../utils/interfaces';
+import useWeatherApi from '../Hooks/useWeatherApi';
 
 export const WeatherContext = createContext<WeatherGlobalStates | null>(null);
 
 export const WeatherProvider: React.FC<WeatherProviderInterface> = ({ children }) => {
-  const [weatherData, setWeatherData] = useState<WeatherData>(initialWeatherContextData);
-  const [forecastData, setForecastData] = useState<WeatherForeCastResponse>(initialForecastData);
+  const [location, setLocation] = useState<string>('London');
+  const data: WeatherHookResult = useWeatherApi(location);
 
   return (
-    <WeatherContext.Provider value={{weatherData, forecastData}}>
+    <WeatherContext.Provider value={{ data, setLocation }}>
       {children}
     </WeatherContext.Provider>
   );
