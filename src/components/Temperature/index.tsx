@@ -1,27 +1,22 @@
 import React from 'react';
+import { TemperatureProps } from '../../utils/interfaces';
 import '../../styles/Temperature.scss';
 
-interface TemperatureProps {
-  temperature: number;
-  humidity: number;
-  windSpeed: number;
-}
-
-const Temperature: React.FC<TemperatureProps> = ({ temperature, humidity, windSpeed }) => {
+const Temperature: React.FC<TemperatureProps> = ({ temperature, humidity, windSpeed, windDirection, uv }) => {
   return (
     <div className="temperature">
       <div className="temperature__item">
-        <span className="temperature__label">Temperature:</span>
-        <span className="temperature__value">{temperature}°C</span>
+        <span className="temperature__value--current">{temperature}°</span>
       </div>
       <div className="temperature__item">
-        <span className="temperature__label">Humidity:</span>
-        <span className="temperature__value">{humidity}%</span>
+        <span className="temperature__value--uv">+/-{uv}</span>
       </div>
       <div className="temperature__item">
-        <span className="temperature__label">Wind Speed:</span>
-        <span className="temperature__value">{windSpeed} km/h</span>
+        <span className="temperature__value--humidity">{humidity}%</span>
       </div>
+      <div className="temperature__item">
+        <span className="temperature__value--wind">Wind:{windDirection} {windSpeed} km/h</span>
+      </div>      
     </div>
   );
 };

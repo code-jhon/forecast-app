@@ -26,6 +26,7 @@ const Search: React.FC = () => {
           borderLeft: "none",
           borderRight: "none",
           fontFamily: "'Falling Sky', sans-serif",
+          width: "100%",
         }}
       />
       <FaSearch className="search-input__icon" />

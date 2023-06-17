@@ -177,3 +177,11 @@ export interface WeatherGlobalStates {
   data: WeatherHookResult;
   setLocation: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface TemperatureProps {
+  temperature: number;
+  humidity: number;
+  windSpeed: number;
+  windDirection: string;
+  uv: number;
+}
