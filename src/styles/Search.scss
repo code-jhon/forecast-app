@@ -2,14 +2,7 @@
   display: flex;
   align-items: center;
 
-  &__field {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-  }
-
   &__icon {
-    margin-left: -25px;
+    margin-left: -20px;
   }
 }

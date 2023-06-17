@@ -5,12 +5,13 @@ import Temperature from '../../components/Temperature';
 
 import { WeatherContext } from '../../services/Context/WeatherContext';
 
-import '../../styles/SideBar.scss';
 import OtherInfo from '../../components/OtherInfo';
 import AverageHumidity from '../../components/AverageHumidity';
 
+import '../../styles/SideBar.scss';
+
 const SideBar: React.FC = () => {
-  const { weatherData, forecastData } = useContext(WeatherContext);
+  const { weatherData, forecastData } = useContext<any>(WeatherContext);
   return (
     <div className="sidebar">
       <div className="sidebar__inner-component">
