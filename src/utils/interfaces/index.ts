@@ -79,6 +79,10 @@ export interface OtherInfoProps {
   probability: number;
 }
 
+export interface UvIndicatorProps {
+  probability: number;
+}
+
 interface Condition {
   text: string;
   icon: string;

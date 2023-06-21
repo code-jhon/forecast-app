@@ -5,7 +5,7 @@ import Temperature from '../../components/Temperature';
 
 import { WeatherContext } from '../../services/Context/WeatherContext';
 
-import OtherInfo from '../../components/OtherInfo';
+import UvIndicator from '../../components/UvIndicator';
 import AverageHumidity from '../../components/AverageHumidity';
 
 import '../../styles/SideBar.scss';
@@ -28,7 +28,7 @@ const SideBar: React.FC = () => {
         />
       </div>
       <div className="sidebar__inner-component">
-        {/* <OtherInfo probability={20} /> */}
+        <UvIndicator probability={data.weatherData?.current.uv} />
       </div>
       <div className="sidebar__inner-component">
         {/* <AverageHumidity data={data}/> */}
