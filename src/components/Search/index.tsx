@@ -15,7 +15,9 @@ const Search: React.FC = () => {
       <Autocomplete
         apiKey={import.meta.env.VITE_GOOGLE_API_KEY}
         onPlaceSelected={(place) => {
-          setLocation(place.address_components[0].short_name);
+          const city = place.address_components[0].short_name;
+          const country = place.address_components[3].long_name;
+          setLocation(`${city}, ${country}`);
         }}
         style={{
           padding: "8px",
