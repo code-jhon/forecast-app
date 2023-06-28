@@ -2,23 +2,22 @@ import {useState, useEffect, useContext} from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import { WeatherContext } from '../../services/Context/WeatherContext';
 
-const openaiKey = import.meta.env.VITE_OPEN_AI_KEY;
+import loadingGif from '../../assets/ai-loader-opt.gif';
+import "../../styles/CityInfo.scss";
 
-const CityInfo = () => {
-  const configuration = new Configuration({
+
+const openaiKey = import.meta.env.VITE_OPEN_AI_KEY;
+const configuration = new Configuration({
     apiKey: openaiKey,
   });
 
-  //call weatherData from context
+const CityInfo = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { data } = useContext<any>(WeatherContext);
-
-  const city = `${ data.weatherData?.location?.name }, ${ data.weatherData?.location?.country }`;
-
-  const promptParam = `show a 100 chars text about the following city ${ city } highlight the best from the city`;
+  const { location } = useContext<any>(WeatherContext);
 
   const openai = new OpenAIApi(configuration);
-  const [prompt] = useState(promptParam);
+  delete configuration.baseOptions.headers['User-Agent'];
+
   const [apiResponse, setApiResponse] = useState<string | undefined>("");
   const [loading, setLoading] = useState(false);
 
@@ -27,14 +26,12 @@ const CityInfo = () => {
     try {
       const result = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: prompt,
+        prompt: `show short text about the following city ${ location } highlight the best from the city, limit to 40 words`,
         temperature: 0.5,
         max_tokens: 4000,
       });
-      //console.log("response", result.data.choices[0].text);
       setApiResponse(result.data.choices[0].text);
     } catch (e) {
-      console.log(e);
       setApiResponse("Something is going wrong, Please try again.");
     }
     setLoading(false);
@@ -43,13 +40,15 @@ const CityInfo = () => {
   useEffect(() => {
     requestResponse();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location]);
 
   const content = loading ? (
-    <div className="loading"> Loading... </div>
+    <div className="loading"> <img width="100%" src={loadingGif} alt="loading AI response" /></div>
   ):(
-    <div>
+    <div className='fade-in'>
+      <h4>{location} City</h4>
       { apiResponse }
+      <h5>powered by <a href="https://platform.openai.com/" target="_blank" rel="noopener noreferrer">openai.com</a></h5>
     </div>
   );
 

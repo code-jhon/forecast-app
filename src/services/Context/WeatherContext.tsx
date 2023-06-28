@@ -9,7 +9,7 @@ export const WeatherProvider: React.FC<WeatherProviderInterface> = ({ children }
   const data: WeatherHookResult = useWeatherApi(location);
 
   return (
-    <WeatherContext.Provider value={{ data, setLocation }}>
+    <WeatherContext.Provider value={{ data, setLocation, location }}>
       {children}
     </WeatherContext.Provider>
   );
