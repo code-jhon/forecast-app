@@ -9,8 +9,10 @@ import UvIndicator from '../../components/UvIndicator';
 import DayTemperatureChart from '../../components/DayTemperatureChart';
 
 import '../../styles/SideBar.scss';
+import CityInfo from '../../components/CityInfo';
 
 const SideBar: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data } = useContext<any>(WeatherContext);
   const content = !data.loading ? (
     <div className="sidebar">
@@ -33,7 +35,7 @@ const SideBar: React.FC = () => {
         <DayTemperatureChart forecastDay={data.weatherData.forecast.forecastday}/>
       </div>
       <div className="sidebar__inner-component">
-        {/* Content for the third inner component */}
+        <CityInfo />
       </div>
     </div>
   ) : (

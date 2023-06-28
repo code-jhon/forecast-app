@@ -120,6 +120,7 @@ const DayTemperatureChart: React.FC<DayTemperatureChartProps> = ({ forecastDay }
 
   useEffect(() => {
     drawChart();    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forecastDay]);
 
   return <svg ref={chartRef} className="average-humidity-chart"></svg>;
