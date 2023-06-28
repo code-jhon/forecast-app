@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { WeatherGlobalStates } from "../../utils/interfaces";
 import { WeatherContext } from "../../services/Context/WeatherContext";
 
 import Autocomplete from "react-google-autocomplete";
@@ -16,7 +15,9 @@ const Search: React.FC = () => {
         apiKey={import.meta.env.VITE_GOOGLE_API_KEY}
         onPlaceSelected={(place) => {
           const city = place.address_components[0].short_name;
-          const country = place.address_components[3].long_name;
+          const country = place.address_components.length <= 3 
+            ? place.address_components[2].long_name 
+            : place.address_components[3].long_name;
           setLocation(`${city}, ${country}`);
         }}
         style={{

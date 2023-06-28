@@ -183,6 +183,7 @@ export interface AverageHumidityProps {
 export interface WeatherGlobalStates {
   data: WeatherHookResult;
   setLocation: React.Dispatch<React.SetStateAction<string>>;
+  location: string;
 }
 
 export interface TemperatureProps {
