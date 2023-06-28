@@ -6,14 +6,13 @@ import Temperature from '../../components/Temperature';
 import { WeatherContext } from '../../services/Context/WeatherContext';
 
 import UvIndicator from '../../components/UvIndicator';
-import AverageHumidity from '../../components/AverageHumidity';
+import DayTemperatureChart from '../../components/DayTemperatureChart';
 
 import '../../styles/SideBar.scss';
 
 const SideBar: React.FC = () => {
   const { data } = useContext<any>(WeatherContext);
-
-  const content = data && !data.loading ? (
+  const content = !data.loading ? (
     <div className="sidebar">
       <div className="sidebar__inner-component">
         <Search />
@@ -31,7 +30,7 @@ const SideBar: React.FC = () => {
         <UvIndicator probability={data.weatherData?.current.uv} />
       </div>
       <div className="sidebar__inner-component">
-        {/* <AverageHumidity data={data}/> */}
+        <DayTemperatureChart forecastDay={data.weatherData.forecast.forecastday}/>
       </div>
       <div className="sidebar__inner-component">
         {/* Content for the third inner component */}
