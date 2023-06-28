@@ -54,8 +54,7 @@ interface Current {
 }
 
 export interface WeatherData {
-  location: Location;
-  current: Current;
+  forecastDay: ForecastDay[];
 }
 
 export interface ErrorResponse {
@@ -81,6 +80,10 @@ export interface OtherInfoProps {
 
 export interface UvIndicatorProps {
   probability: number;
+}
+
+export interface DayTemperatureChartProps {
+  forecastDay: ForecastDay[];
 }
 
 interface Condition {

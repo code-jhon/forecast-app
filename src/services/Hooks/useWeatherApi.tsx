@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { ErrorResponse, WeatherHookResult } from '../../utils/interfaces';
 import { mockedData } from '../Context/mockedData';
 import { getWeatherData } from '../API/weather';
@@ -10,8 +10,8 @@ const useWeatherApi = (location: string) => {
     error: null,
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = useMemo(
+    () => async () => {
       try {
         const weatherData = await getWeatherData(location);
         setWeatherData({
@@ -26,10 +26,13 @@ const useWeatherApi = (location: string) => {
           error: error as ErrorResponse,
         });
       }
-    };
+    }, 
+    [location]
+  );
 
+  useEffect(() => {
     fetchData();
-  }, [location]);
+  }, [fetchData]);
 
   return weatherData;
 };
