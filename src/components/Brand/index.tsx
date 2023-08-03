@@ -1,10 +1,15 @@
 import React from 'react';
 import '../../styles/Brand.scss';
 
-const Brand: React.FC = () => {
+// interface for props
+interface BrandProps {
+  country: string;
+}
+
+const Brand: React.FC<BrandProps> = ({ country }) => {
   return (
     <div className="brand">
-      <span className="brand__word">Forecast App</span>
+      <span className="brand__word">{ country } Forecast</span>
     </div>
   );
 };
