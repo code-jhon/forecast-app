@@ -19,23 +19,25 @@ const SideBar: React.FC = () => {
       <div className="sidebar__inner-component">
         <Search />
       </div>
-      <div className="sidebar__inner-component">
-        <Temperature
-          temperature={data.weatherData?.current.temp_c}
-          humidity={data.weatherData?.current.humidity}
-          windSpeed={data.weatherData?.current.wind_kph}
-          windDirection={data.weatherData?.current.wind_dir}
-          uv={data.weatherData?.current.uv}
-        />
-      </div>
-      <div className="sidebar__inner-component">
-        <UvIndicator probability={data.weatherData?.current.uv} />
-      </div>
-      <div className="sidebar__inner-component">
-        <DayTemperatureChart forecastDay={data.weatherData.forecast.forecastday}/>
-      </div>
-      <div className="sidebar__inner-component">
-        <CityInfo />
+      <div style={{ overflowY: 'auto', maxHeight: '100%' }}>
+        <div className="sidebar__inner-component">
+          <Temperature
+            temperature={data.weatherData?.current.temp_c}
+            humidity={data.weatherData?.current.humidity}
+            windSpeed={data.weatherData?.current.wind_kph}
+            windDirection={data.weatherData?.current.wind_dir}
+            uv={data.weatherData?.current.uv}
+          />
+        </div>
+        <div className="sidebar__inner-component">
+          <UvIndicator probability={data.weatherData?.current.uv} />
+        </div>
+        <div className="sidebar__inner-component">
+          <DayTemperatureChart forecastDay={data.weatherData.forecast.forecastday}/>
+        </div>
+        <div className="sidebar__inner-component">
+          <CityInfo />
+        </div>
       </div>
     </div>
   ) : (
