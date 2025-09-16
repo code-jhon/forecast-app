@@ -20,17 +20,7 @@ const Search: React.FC = () => {
             : place.address_components[3].long_name;
           setLocation(`${city}, ${country}`);
         }}
-        style={{
-          padding: "8px",
-          borderBottom: "1px solid #fff",
-          outline: "none",
-          backgroundColor: "transparent",
-          borderTop: "none",
-          borderLeft: "none",
-          borderRight: "none",
-          fontFamily: "'Falling Sky', sans-serif",
-          width: "100%",
-        }}
+        placeholder="Search for a city..."
       />
       <FaSearch className="search-input__icon" />
     </div>

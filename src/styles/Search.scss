@@ -1,8 +1,43 @@
 .search-input {
   display: flex;
   align-items: center;
+  position: relative;
+  width: 100%;
 
   &__icon {
-    margin-left: -20px;
+    position: absolute;
+    right: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  input {
+    width: 100%;
+    padding: 16px 40px 16px 16px !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    font-family: 'Falling Sky', sans-serif !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+    
+    &:focus {
+      outline: none !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.3) !important;
+      background: rgba(255, 255, 255, 0.12) !important;
+    }
   }
 }

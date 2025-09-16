@@ -6,16 +6,20 @@ const Temperature: React.FC<TemperatureProps> = ({ temperature, humidity, windSp
   return (
     <div className="temperature">
       <div className="temperature__item">
-        <span className="temperature__value--current">{temperature}°</span>
+        <div className="temperature__label">Temperature</div>
+        <span className="temperature__value temperature__value--current">{temperature}°</span>
       </div>
       <div className="temperature__item">
-        <span className="temperature__value--uv">+/-{uv}</span>
+        <div className="temperature__label">UV Index</div>
+        <span className="temperature__value temperature__value--uv">{uv}</span>
       </div>
       <div className="temperature__item">
-        <span className="temperature__value--humidity">{humidity}%</span>
+        <div className="temperature__label">Humidity</div>
+        <span className="temperature__value temperature__value--humidity">{humidity}%</span>
       </div>
       <div className="temperature__item">
-        <span className="temperature__value--wind">Wind:{windDirection} {windSpeed} km/h</span>
+        <div className="temperature__label">Wind</div>
+        <span className="temperature__value temperature__value--wind">{windDirection} {windSpeed} km/h</span>
       </div>      
     </div>
   );

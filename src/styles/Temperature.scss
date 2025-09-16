@@ -1,32 +1,71 @@
 .temperature {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 159px;
-  max-width: 269px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
 
   &__item {
-    margin-bottom: 10px;
-    width: 50%;
-    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+    
+    &:first-child {
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
   }
 
   &__value {
-    margin-left: 5px;
+    color: white;
+    font-weight: 600;
+    line-height: 1;
 
-    &--current,
+    &--current {
+      font-size: 48px;
+      font-weight: 700;
+      color: #4ECDC4;
+    }
+
     &--uv {
-      font-size: 68px;
+      font-size: 28px;
+      color: #FFE66D;
     }
 
     &--humidity {
-      font-size: 33px;
+      font-size: 24px;
+      color: #A8E6CF;
     }
 
     &--wind {
-      position: relative;
-      font-size: 15px;
-      top: 19px;
+      font-size: 14px;
+      color: #FFB3BA;
+      line-height: 1.4;
     }
   }
 }

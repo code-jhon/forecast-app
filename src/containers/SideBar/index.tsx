@@ -19,7 +19,7 @@ const SideBar: React.FC = () => {
       <div className="sidebar__inner-component">
         <Search />
       </div>
-      <div style={{ overflowY: 'auto', maxHeight: '100%' }}>
+      <div className="sidebar-scrollable">
         <div className="sidebar__inner-component">
           <Temperature
             temperature={data.weatherData?.current.temp_c}

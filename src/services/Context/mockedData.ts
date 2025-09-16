@@ -298,6 +298,158 @@ export const mockedForecastData: WeatherForeCastResponse = {
             "uv": 1
           }
         ]
+      },
+      {
+        "date": "2022-07-24T00:00:00.000Z",
+        "date_epoch": 1658620800,
+        "day": {
+          "maxtemp_c": 28.5,
+          "maxtemp_f": 83.3,
+          "mintemp_c": 22.1,
+          "mintemp_f": 71.8,
+          "avgtemp_c": 25.3,
+          "avgtemp_f": 77.5,
+          "maxwind_mph": 18.6,
+          "maxwind_kph": 29.9,
+          "totalprecip_mm": 2.5,
+          "totalprecip_in": 0.1,
+          "avgvis_km": 8,
+          "avgvis_miles": 5,
+          "avghumidity": 68,
+          "daily_will_it_rain": 1,
+          "daily_chance_of_rain": 75,
+          "daily_will_it_snow": 0,
+          "daily_chance_of_snow": 0,
+          "condition": {
+            "text": "Light rain",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/296.png",
+            "code": 1183
+          },
+          "uv": 4
+        },
+        "astro": {
+          "sunrise": "05:45 AM",
+          "sunset": "08:18 PM",
+          "moonrise": "02:15 AM",
+          "moonset": "04:22 PM",
+          "moon_phase": "Waning Crescent",
+          "moon_illumination": "28"
+        },
+        "hour": []
+      },
+      {
+        "date": "2022-07-25T00:00:00.000Z",
+        "date_epoch": 1658707200,
+        "day": {
+          "maxtemp_c": 32.8,
+          "maxtemp_f": 91.0,
+          "mintemp_c": 24.7,
+          "mintemp_f": 76.5,
+          "avgtemp_c": 28.8,
+          "avgtemp_f": 83.8,
+          "maxwind_mph": 14.3,
+          "maxwind_kph": 23.0,
+          "totalprecip_mm": 0,
+          "totalprecip_in": 0,
+          "avgvis_km": 12,
+          "avgvis_miles": 7,
+          "avghumidity": 45,
+          "daily_will_it_rain": 0,
+          "daily_chance_of_rain": 15,
+          "daily_will_it_snow": 0,
+          "daily_chance_of_snow": 0,
+          "condition": {
+            "text": "Partly cloudy",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+            "code": 1003
+          },
+          "uv": 7
+        },
+        "astro": {
+          "sunrise": "05:46 AM",
+          "sunset": "08:17 PM",
+          "moonrise": "03:32 AM",
+          "moonset": "05:08 PM",
+          "moon_phase": "Waning Crescent",
+          "moon_illumination": "21"
+        },
+        "hour": []
+      },
+      {
+        "date": "2022-07-26T00:00:00.000Z",
+        "date_epoch": 1658793600,
+        "day": {
+          "maxtemp_c": 26.2,
+          "maxtemp_f": 79.2,
+          "mintemp_c": 19.8,
+          "mintemp_f": 67.6,
+          "avgtemp_c": 23.0,
+          "avgtemp_f": 73.4,
+          "maxwind_mph": 22.4,
+          "maxwind_kph": 36.0,
+          "totalprecip_mm": 8.3,
+          "totalprecip_in": 0.33,
+          "avgvis_km": 6,
+          "avgvis_miles": 4,
+          "avghumidity": 78,
+          "daily_will_it_rain": 1,
+          "daily_chance_of_rain": 85,
+          "daily_will_it_snow": 0,
+          "daily_chance_of_snow": 0,
+          "condition": {
+            "text": "Heavy rain",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/308.png",
+            "code": 1195
+          },
+          "uv": 3
+        },
+        "astro": {
+          "sunrise": "05:47 AM",
+          "sunset": "08:16 PM",
+          "moonrise": "04:48 AM",
+          "moonset": "05:54 PM",
+          "moon_phase": "Waning Crescent",
+          "moon_illumination": "15"
+        },
+        "hour": []
+      },
+      {
+        "date": "2022-07-27T00:00:00.000Z",
+        "date_epoch": 1658880000,
+        "day": {
+          "maxtemp_c": 30.1,
+          "maxtemp_f": 86.2,
+          "mintemp_c": 23.4,
+          "mintemp_f": 74.1,
+          "avgtemp_c": 26.8,
+          "avgtemp_f": 80.2,
+          "maxwind_mph": 16.8,
+          "maxwind_kph": 27.0,
+          "totalprecip_mm": 0,
+          "totalprecip_in": 0,
+          "avgvis_km": 14,
+          "avgvis_miles": 9,
+          "avghumidity": 52,
+          "daily_will_it_rain": 0,
+          "daily_chance_of_rain": 25,
+          "daily_will_it_snow": 0,
+          "daily_chance_of_snow": 0,
+          "condition": {
+            "text": "Cloudy",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/119.png",
+            "code": 1006
+          },
+          "uv": 5
+        },
+        "astro": {
+          "sunrise": "05:48 AM",
+          "sunset": "08:15 PM",
+          "moonrise": "06:04 AM",
+          "moonset": "06:40 PM",
+          "moon_phase": "New Moon",
+          "moon_illumination": "8"
+        },
+        "hour": []
       }
     ]
   }
