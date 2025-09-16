@@ -1,22 +1,15 @@
 import {useState, useEffect, useContext} from 'react';
-import { Configuration, OpenAIApi } from 'openai';
 import { WeatherContext } from '../../services/Context/WeatherContext';
 
 import loadingGif from '../../assets/ai-loader-opt.gif';
 import "../../styles/CityInfo.scss";
 
-
-const openaiKey = import.meta.env.VITE_OPEN_AI_KEY;
-const configuration = new Configuration({
-    apiKey: openaiKey,
-  });
+// Backend API URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
 
 const CityInfo = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { location } = useContext<any>(WeatherContext);
-
-  const openai = new OpenAIApi(configuration);
-  delete configuration.baseOptions.headers['User-Agent'];
 
   const [apiResponse, setApiResponse] = useState<string | undefined>("");
   const [loading, setLoading] = useState(false);
@@ -24,15 +17,25 @@ const CityInfo = () => {
   const requestResponse = async () => {
     setLoading(true);
     try {
-      const result = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: `show short text about the following city ${ location } highlight the best from the city, limit to 40 words`,
-        temperature: 0.5,
-        max_tokens: 4000,
+      // Call secure backend API instead of OpenAI directly
+      const response = await fetch(`${API_BASE_URL}/api/city-info`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ location }),
       });
-      setApiResponse(result.data.choices[0].text);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setApiResponse(data.response);
     } catch (e) {
-      setApiResponse("Something is going wrong, Please try again.");
+      console.error('API error:', e);
+      setApiResponse(e instanceof Error ? e.message : "Something is going wrong, Please try again.");
     }
     setLoading(false);
   };
